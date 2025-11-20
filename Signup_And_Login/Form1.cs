@@ -33,7 +33,7 @@ namespace Signup_And_Login
 			{
 				string cs = ConfigurationManager.ConnectionStrings["dbcs"].ConnectionString;
 				SqlConnection con = new SqlConnection(cs);
-				string query = "insert into signup values (@id, @name,@gender,@fathername,@age,@class,@email,@pass)";
+				string query = "insert into signup values (@id, @name,@gender,@fathername,@age,@email,@class,@pass)";
 				SqlCommand cmd = new SqlCommand(query, con);
 				cmd.Parameters.AddWithValue("@id", textBox1.Text);
 				cmd.Parameters.AddWithValue("@name", textBox2.Text);
@@ -225,6 +225,13 @@ namespace Signup_And_Login
 			{
 				e.Handled = true;
 			}
+		}
+
+		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			Form2 loginPage = new Form2();
+			this.Hide();
+			loginPage.Show();
 		}
 	}
 }
